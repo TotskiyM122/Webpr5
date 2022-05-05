@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // загрузить данные пользователя из БД
     // и заполнить переменную $values,
     // предварительно санитизовав.
-    $db = new PDO('mysql:host=localhost;dbname=u41033', 'u41033', '2342412', array(PDO::ATTR_PERSISTENT => true));
+    $db = new PDO('mysql:host=localhost;dbname=u47563', 'u47563', '4182160', array(PDO::ATTR_PERSISTENT => true));
     
     $stmt = $db->prepare("SELECT * FROM human WHERE id = ?");
     $stmt -> execute([$_SESSION['uid']]);
@@ -196,7 +196,7 @@ else {
       session_start() && !empty($_SESSION['login'])) {
     // Перезаписываем данные в БД новыми данными,
     // кроме логина и пароля.
-    $db = new PDO('mysql:host=localhost;dbname=u41033', 'u41033', '2342412', array(PDO::ATTR_PERSISTENT => true));
+    $db = new PDO('mysql:host=localhost;dbname=u47563', 'u47563', '4182160', array(PDO::ATTR_PERSISTENT => true));
     
     // Обновление данных в таблице human
     $stmt = $db->prepare("UPDATE human SET name = ?, email = ?, year = ?, gender = ?, limbs = ?, bio = ? WHERE id= ?");
@@ -227,7 +227,7 @@ else {
     setcookie('pass', $pass);
 
     // Сохранение данных формы, логина и хеш md5() пароля в базу данных.
-    $db = new PDO('mysql:host=localhost;dbname=u41033', 'u41033', '2342412', array(PDO::ATTR_PERSISTENT => true));
+    $db = new PDO('mysql:host=localhost;dbname=u47563', 'u47563', '4182160', array(PDO::ATTR_PERSISTENT => true));
 
     // Запись в таблицу human
     $stmt = $db->prepare("INSERT INTO human SET name = ?, email = ?, year = ?, gender = ?, limbs = ?, bio = ?");
